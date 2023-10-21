@@ -29,7 +29,7 @@ class App {
 
     listen() {
         this.app.listen(this.port, () => {
-            console.log(`Server started at http://localhost:${this.port}` );
+            console.log(`Server Started successfully!` );
         });
     }
 }

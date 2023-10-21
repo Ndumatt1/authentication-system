@@ -14,6 +14,6 @@ const client = mongoose.connect(url, {
 const db = mongoose.connection;
 
 db.on('error', () => console.error('MonogoDB connection error'))
-db.once('open', () => { console.log('Database Connection succesfully') });
+db.once('open', () => console.log('Database Connection succesfull!'));
 
 module.exports = db
