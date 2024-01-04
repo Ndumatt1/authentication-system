@@ -5,9 +5,11 @@ const Joi = require('joi');
  */
 
 const UserSignUpSchema = Joi.object({
-    email: Joi.string().required(),
+    hos_email: Joi.string().required(),
     password: Joi.string().min(6).required(),
-    username: Joi.string().required()
+    hos_telephone: Joi.string().required(),
+    hos_address: Joi.string().required(),
+    hos_name: Joi.string().required()
 });
 
 const LoginSchema = Joi.object({

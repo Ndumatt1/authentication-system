@@ -20,7 +20,6 @@ class AuthenticationRoute {
             `${this.path}/signup`,
             this.authentication.userSignUp.bind(this.authentication)
         );
-        
         this.router.post(
             `${this.path}/login`,
             this.authentication.login.bind(this.authentication)

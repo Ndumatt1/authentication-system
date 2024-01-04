@@ -14,25 +14,27 @@ class Authentication {
             if (error) {
                 return res.status(400).json({'error': error.details});
             }
-            const { email, username, password } = { 
-            email: payload.email.trim(),
-            username: payload.username.trim(),
-            password: payload.password.trim()
+            const { hos_email, hos_name, password, hos_address, hos_telephone } = { 
+            hos_email: payload.hos_email.trim(),
+            hos_name: payload.hos_name.trim(),
+            password: payload.password.trim(),
+            hos_address: payload.hos_address.trim(),
+            hos_telephone: payload.hos_telephone.trim()
             };
-            const userExists = await User.find({ email: email});
-            if (userExists.length > 0) {
+            const hosExists = await User.find({ hos_email: hos_email});
+            if (hosExists.length > 0) {
                 const response_data = {
                     "status": "fail",
-                    "message": "User already Exists"
+                    "message": "Hospital already Exists"
                 }
                 return res.status(400).json(response_data);
             }
-            const usernameExist = await User.find({ username: username });
-            if (usernameExist.length > 0) {
-                return res.status(400).json({ "message": "Username already in use!" })
+            const hosTelephoneExists = await User.find({ hos_telephone: hos_telephone });
+            if (hosTelephoneExists.length > 0) {
+                return res.status(400).json({ "message": "Telephone already in use!" })
             }
             const passwordHash = await PasswordManager.hash(password);
-            await User.create({ password: passwordHash, email, username });
+            await User.create({ password: passwordHash, hos_email, hos_name, hos_address, hos_telephone });
             const response_data = {
                 "status": "success",
                 "message": "Signup successful",
@@ -56,7 +58,7 @@ class Authentication {
                 email: payload.email.trim(),
                 password: payload.password.trim()
             };
-            const userExists = await User.find({ email });
+            const hosExists = await User.find({ email });
             if (userExists.length == 0) {
                 const response_data = {
                     "status": "fail",
@@ -88,11 +90,6 @@ class Authentication {
             console.log(`An error occurred!: ${err}`);
             return res.status(500).json({ "message": "Internal Server Error" });
         }
-    }
-
-    async logout(req, res) {
-        const token = req.header['Authorization'];
-        // implement login
     }
 }
 module.exports = Authentication;

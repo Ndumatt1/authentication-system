@@ -2,15 +2,15 @@
 
 ## Overview
 
-This project is a simple User Authentication System that provides user registration (signup) and sign-in functionality. It allows users to securely create an account and access their account by logging in. 
+This project is a simple Authentication System for hospital dashboard signup and login. 
 
 ## Features
 
-- **User Registration (Signup):** 
-  - Users can create a new account by providing their email, username and password.
+- **Hospital Registration (Signup):** 
+  - Hospitals can create a new account by providing their email,name, address, phonenumber and password.
   - Passwords are securely hashed before storing in the database.
 
-- **User Authentication (Login):**
+- **Hospital Authentication (Login):**
   - Registered users can log in using their email and password.
   - User sessions are maintained for authenticated users using JWT.
 
@@ -39,10 +39,12 @@ This project is a simple User Authentication System that provides user registrat
  * Method   => POST
  * Route    => http://localhost/api/auth/signup
  * data     => {
-      "password": 123456,
-      "username: "John",
-      "email": "johndoe@gmail.com"
- }
+    "hos_email": "johndoe@gmail.com",
+    "hos_address": "Abakaliki",
+    "password": "Hospital@1",
+    "hos_name": "Holy Hospital",
+    "hos_telephone": "12345678901"
+}
  * Response => {
       "status": "success",
       "message": "Signup successful",
@@ -53,7 +55,7 @@ This project is a simple User Authentication System that provides user registrat
  * Method   => POST
  * Route    => http://localhost/api/auth/login
  * data     => {
-      "password": 1234,
+      "password": "Hospital@1",
       "email": "johndoe@gmail.com"
  }
  * Response => {

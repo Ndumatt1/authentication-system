@@ -1,3 +1,4 @@
+const { string } = require('joi');
 const { default: mongoose } = require('mongoose');
 const db = require('mongoose');
 
@@ -7,7 +8,7 @@ const db = require('mongoose');
  */
 
 const userSchema = new mongoose.Schema({
-    username: {
+    hos_name: {
         type: String,
         required: true,
     },
@@ -15,7 +16,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
+    hos_address: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    hos_email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    hos_telephone: {
         type: String,
         required: true,
         unique: true
