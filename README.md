@@ -1,4 +1,4 @@
-# User Authentication System
+# Hospital Authentication System
 
 ## Overview
 
@@ -37,7 +37,7 @@ This project is a simple Authentication System for hospital dashboard signup and
 
  ## TO signup
  * Method   => POST
- * Route    => http://localhost/api/auth/signup
+ * Route    => https://authentication-system-sai8.onrender.com/api/auth/signup
  * data     => {
     "hos_email": "johndoe@gmail.com",
     "hos_address": "Abakaliki",
@@ -53,7 +53,7 @@ This project is a simple Authentication System for hospital dashboard signup and
 
  ## To Login
  * Method   => POST
- * Route    => http://localhost/api/auth/login
+ * Route    => https://authentication-system-sai8.onrender.com/api/auth/login
  * data     => {
       "password": "Hospital@1",
       "email": "johndoe@gmail.com"
